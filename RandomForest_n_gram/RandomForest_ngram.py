@@ -5,19 +5,6 @@ from sklearn.ensemble import RandomForestRegressor
 import pandas as pd
 import numpy as np
 
-data = pd.read_csv("DATA FILEPATH")
-
-#Get rid of all observations without news articles
-data_onlytext = data.dropna()
-
-#Prepare data for sliding window approach. Ordered Month dataframe column has value 1 for first month of dataset and e.g. 20 for 20th month of dataset
-data_onlytext["Date"] = pd.to_datetime(data_onlytext["Date"])
-data_onlytext["Year"] = [x.year for x in data_onlytext["Date"]]
-data_onlytext["Month"] = [x.month for x in data_onlytext["Date"]]
-data_onlytext["ordered_month"] = [((x[1]["Year"]-2015)*12 + x[1]["Month"]) for x in data_onlytext.iterrows()]
-
-data_onlytext = data_onlytext[~data_onlytext["Year"].isin([2009,2010,2011,2012,2013,2014])]
-
 #Create a memory efficient sparse matrix format. Input is the dictionary returned by n_grams function. 
 #Code from paper Frankel, Jennings and Lee (2021) (modified for own needs)
 
@@ -180,6 +167,17 @@ def get_sparsematrix_and_car(data_train, data_test):
 #Function to split dataset based on months.
 def split_months(dt):
     return [dt[dt["ordered_month"] == y] for y in dt["ordered_month"].unique()]
+
+data = pd.read_csv("DATA FILEPATH")
+
+#Get rid of all observations without news articles
+data_onlytext = data.dropna()
+
+#Prepare data for sliding window approach. Ordered Month dataframe column has value 1 for first month of dataset and e.g. 20 for 20th month of dataset
+data_onlytext["Date"] = pd.to_datetime(data_onlytext["Date"])
+data_onlytext["Year"] = [x.year for x in data_onlytext["Date"]]
+data_onlytext["Month"] = [x.month for x in data_onlytext["Date"]]
+data_onlytext["ordered_month"] = [((x[1]["Year"]-2015)*12 + x[1]["Month"]) for x in data_onlytext.iterrows()]
 
 data_splt_months = split_months(data_onlytext)
 
