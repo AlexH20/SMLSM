@@ -202,5 +202,5 @@ for _, month in enumerate(data_splt_months):
         pred = rf.predict(X_test).tolist()
         
 #References:
-#Frankel, R., Jennings, J., and Lee, J. (2021). Disclosure sentiment: Machine learning vs. dictionary methods. Management Science.
+#Frankel, R., Jennings, J., and Lee, J. (2021). Disclosure sentiment: Machine learning vs. dictionary methods. Management Science, accessed 04.06.2022
 
