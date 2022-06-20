@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 
 #Create a memory efficient sparse matrix format. Input is the dictionary returned by n_grams function. 
-#Code from paper Frankel, Jennings and Lee (2021) (modified for own needs)
+#sparse_mat, get_ngrams and get_sparsematrix_and_car based on online appendix of paper by Frankel, Jennings and Lee (2021)
 
 def sparse_mat(data):
     row1 = []
@@ -200,3 +200,7 @@ for _, month in enumerate(data_splt_months):
         rf = RandomForestRegressor(n_estimators=1000, max_features='sqrt', n_jobs=-1)
         rf = rf.fit(X_train, y_train)
         pred = rf.predict(X_test).tolist()
+        
+#References:
+#Frankel, R., Jennings, J., and Lee, J. (2021). Disclosure sentiment: Machine learning vs. dictionary methods. Management Science.
+
