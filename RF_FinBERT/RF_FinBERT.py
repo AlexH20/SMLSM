@@ -8,8 +8,8 @@ import pandas as pd
 import csv
 from sklearn.ensemble import RandomForestRegressor
 
-#The following code uses FinBERT as an encoder, extracts the hidden state of the CLS token and uses it as input for the Random Forest algorithm. 
-#Dataset class, FinBERT class and get_pooleroutput function based on Ruben Winastwan https://towardsdatascience.com/text-classification-with-bert-in-pytorch-887965e5820f. 
+#The following code uses FinBERT as an encoder, and uses the pooler output as input for the Random Forest algorithm. 
+#Dataset class, FinBERT class and get_pooleroutput function based on Ruben Winastwan (2021)
 
 #Class to tokenize text dataset and prepare inputs in form of batches for FinBERT
 class Dataset(torch.utils.data.Dataset):
@@ -129,3 +129,6 @@ for _, month in enumerate(data_splt_months):
         rf = RandomForestRegressor(n_estimators=1000, n_jobs = -1, max_features = 2/3)
         rf = rf.fit(X_train_hidden, y_train)
         pred = rf.predict(X_test_hidden).tolist()
+        
+#References:
+#Ruben Winastwan (2021) https://towardsdatascience.com/text-classification-with-bert-in-pytorch-887965e5820f, accessed 18.06.2022 
