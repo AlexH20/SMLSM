@@ -8,7 +8,7 @@ Name of Quantlet: 'RF_FinBERT'
 
 Published in: TBC
 
-Description: This folder contains 1 quantlet estimating sentiment measures based on the Random Forest algorithm with inputs from FinBERT for master thesis "Supervised Machine Learning Sentiment Measures"
+Description: This folder contains 1 quantlet estimating sentiment measures based on the Random Forest algorithm with inputs from FinBERT for the master thesis "Supervised Machine Learning Sentiment Measures"
 
 Keywords: NLP, sentiment analysis, Natural Language Processing, sentiment
 
