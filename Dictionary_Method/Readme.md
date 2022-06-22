@@ -8,7 +8,7 @@ Name of Quantlet: 'Dictionary_method'
 
 Published in: TBC
 
-Description: This folder contains 1 quantlet estimating dictionary-based sentiment measures for master thesis "Supervised Machine Learning Sentiment Measures"
+Description: This folder contains 1 quantlet estimating dictionary-based sentiment measures for the master thesis "Supervised Machine Learning Sentiment Measures"
 
 Keywords: NLP, sentiment analysis, Natural Language Processing, sentiment
 
