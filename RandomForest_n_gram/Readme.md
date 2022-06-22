@@ -4,7 +4,7 @@
 
 ```yaml
 
-Name of Quantlet: 'RandomForest_n_gram.py'
+Name of Quantlet: 'RandomForest_n_gram'
 
 Published in: TBC
 
