@@ -4,7 +4,7 @@
 
 ```yaml
 
-Name of Quantlet: 'Dictionary_method'
+Name of Quantlet: 'Dictionary_method.py'
 
 Published in: TBC
 
