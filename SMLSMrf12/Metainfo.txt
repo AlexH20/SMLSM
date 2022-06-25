@@ -1,4 +1,4 @@
-Name of Quantlet: 'RandomForest_n_gram'
+Name of Quantlet: 'SMLSMrf12'
 
 Published in: TBC
 
