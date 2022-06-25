@@ -1,4 +1,4 @@
-Name of Quantlet: 'PanelRegression'
+Name of Quantlet: 'SMLSMpregression'
 
 Published in: TBC
 
