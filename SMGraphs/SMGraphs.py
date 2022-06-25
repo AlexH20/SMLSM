@@ -4,8 +4,7 @@ import csv
 import numpy as np
 import matplotlib.pyplot as plt
 
-#Data without sentiment measures
-data_final = pd.read_csv("data_whole_AAPL2016.csv")
+data_aapl = pd.read_csv("data_whole_AAPL2016.csv")
 
 #DM sentiment measures
 sentiment_measures = ["HIV4 TONE", "LM TONE"]
