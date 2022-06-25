@@ -1,4 +1,4 @@
-Name of Quantlet: 'RF_FinBERT'
+Name of Quantlet: 'SMLSMrffin'
 
 Published in: TBC
 
