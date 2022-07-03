@@ -13,6 +13,10 @@ import csv
 
 drive.mount("/content/gdrive")
 
+#The following code uses FinBERT as an encoder and stacks a dropout & dense layer on top.
+#Dataset class, FinBERT class, train and evaluate function based on Ruben Winastwan (2021)
+
+#Class to tokenize text dataset and prepare inputs in form of batches for FinBERT
 class Dataset(torch.utils.data.Dataset):
 
     def __init__(self, df):
@@ -43,11 +47,12 @@ class Dataset(torch.utils.data.Dataset):
 
         return batch_texts, batch_y
 
-class BertClassifier(nn.Module):
+#FinBERT class. Extract hidden state of CLS token further processed by Linear Layer and tanh activation function, which is then feed into a dropout & dense layer
+class FinBERT(nn.Module):
 
     def __init__(self, dropout=0.1):
 
-        super(BertClassifier, self).__init__()
+        super(FinBERT, self).__init__()
 
         self.bert = BertModel.from_pretrained('yiyanghkust/finbert-tone')
         self.dropout = nn.Dropout(dropout)
@@ -100,7 +105,7 @@ def train(model, train_data, learning_rate, epochs):
             print(
                 f'Epochs: {epoch_num + 1} | Train Loss: {total_loss_train / len(train_data): .10f}')
             
-
+#Evaluate model by predicting the abnormal returns
 def evaluate(model, test_data):
 
     test = Dataset(test_data)
@@ -130,11 +135,11 @@ def evaluate(model, test_data):
     
     return sum(prediction, [])
 
+#Function to split dataset based on months
 def split_months(dt):
     return [dt[dt["ordered_month"] == y] for y in dt["ordered_month"].unique()]
 
-data = pd.read_csv("gdrive/My Drive/Thesis/processed data/CAR_regression/datasets_final/data_whole_woScAR.csv", index_col = False)
-print(data.columns)
+data = pd.read_csv("DATA FILE PATH")
 
 data_onlytext = data[data["word_count"] != 0]
 data_onlytext["Date"] = pd.to_datetime(data_onlytext["Date"])
@@ -149,7 +154,7 @@ LR = 1e-5
              
 data_splt_months = split_months(data_onlytext)
 
-i = 51
+i = -1
 
 np.random.seed(9000)
 for _, month in enumerate(data_splt_months):
@@ -159,21 +164,11 @@ for _, month in enumerate(data_splt_months):
         data_train = pd.concat([data_splt_months[i], data_splt_months[i+1], data_splt_months[i+2]])
         data_test = data_splt_months[i+3]
 
-        model = BertClassifier()
+        model = FinBERT()
         train(model, data_train, LR, EPOCHS)
         pred = evaluate(model, data_test)
 
-        print(mean_squared_error(data_test["AR"], pred))
-
-        if i+1 < len(data_splt_months):
-
-            data_splt_months[i+3]["AR_FinNN"] = pred
-
-            with open("gdrive/My Drive/Thesis/processed data/CAR_regression/FinBERTNN_sentiment/" + str(i+1) + ".csv", "w") as csv_file:
-                  
-                  writer = csv.writer(csv_file)
-                  writer.writerow(
-                      ['Date', 'Ticker', 'Nasdaq', 'Turnover', 'Size', 'BTM', 'pref_alpha','Text', 'word_count', 'AR', 'Return', 'AR_FinNN'])
-                  for index, row in data_splt_months[i+3].iterrows():
-                      writer.writerow([row["Date"], row["Ticker"], row["Nasdaq"], row["Turnover"], row["Size"], row["BTM"], row["pref_alpha"], row["Text"], row["word_count"], row["AR"], row["Return"], row["AR_FinNN"]])
-
+#References:
+#Ruben Winastwan (2021) https://towardsdatascience.com/text-classification-with-bert-in-pytorch-887965e5820f, accessed 18.06.2022 
+#Huggingface FinBERT model: https://huggingface.co/yiyanghkust/finbert-tone, accessed 18.06.2022
+#Yang, Y., Uy, M. C. S., and Huang, A. (2020). Finbert: A pretrained language model for financial communications. arXiv preprint arXiv:2006.08097.
