@@ -66,6 +66,7 @@ class FinBERT(nn.Module):
 
         return linear_output.view(-1, 1).squeeze(1)
 
+#Function to train model through backpropagation
 def train(model, train_data, learning_rate, epochs):
 
     train = Dataset(train_data)
