@@ -11,8 +11,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 import csv
 
-drive.mount("/content/gdrive")
-
 #The following code uses FinBERT as an encoder and stacks a dropout & dense layer on top.
 #Dataset class, FinBERT class, train and evaluate function based on Ruben Winastwan (2021)
 
