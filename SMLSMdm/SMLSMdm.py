@@ -2,7 +2,8 @@ import pandas as pd
 import pysentiment2 as ps
 import re
 
-#The following code extracts the net tone sentiment measures based on the Harvard and LM dictionary.
+#The following code extracts the net tone sentiment measures based on the Harvard and LM dictionary. Both dictionaries were accessed through the
+#package Pysentiment2
 
 #Function that counts words of text article documents
 def count_words(Text):
@@ -10,7 +11,6 @@ def count_words(Text):
     return word_count
 
 data = pd.read_csv("DATA FILEPATH")
-print(data.columns)
 
 #Initial dictionary methods. Harvard and LM dms will be used to assess text sentiment
 hiv4 = ps.HIV4()
