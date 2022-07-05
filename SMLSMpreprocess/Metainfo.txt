@@ -1,8 +1,9 @@
-Name of Quantlets: SMLSMprocessraw, SMLSMporterstemm, SMLSMgetpanel
+
+Name of Quantlets: SMLSMprocessraw, SMLSMporterstemm, SMLSMgetpanel, SMLSMmerge
 
 Published in: TBC
 
-Description: This folder contains 3 quantlets for the master thesis "Supervised Machine Learning Sentiment Measures. SMLSMprocessraw preprocesses the raw news dataset, SMLSMporterstemm stems words in the news articles and SMLSMgetpanel extracts variables from the WRDS database".
+Description: This folder contains 3 quantlets for the master thesis "Supervised Machine Learning Sentiment Measures. SMLSMprocessraw preprocesses the raw news dataset, SMLSMporterstemm stems words in the news articles, SMLSMgetpanel extracts variables from the WRDS database and SMLSMmerge merges the output file of quantlet SMLSMgetpanel and quantlet SMLSMprocessraw".
 
 Keywords: NLP, sentiment analysis, Natural Language Processing, sentiment
 
