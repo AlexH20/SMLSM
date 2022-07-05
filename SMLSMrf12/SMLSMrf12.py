@@ -5,9 +5,10 @@ from sklearn.ensemble import RandomForestRegressor
 import pandas as pd
 import numpy as np
 
-#Create a memory efficient sparse matrix format. Input is the dictionary returned by n_grams function. 
+
 #sparse_mat, get_ngrams and get_sparsematrix_and_car based on online appendix of paper by Frankel, Jennings and Lee (2021)
 
+#Function creates a memory efficient sparse matrix format. Input is the dictionary returned by n_grams function. 
 def sparse_mat(data):
     row1 = []
     col1 = []
@@ -77,12 +78,9 @@ def get_ngrams(data):
 
     return ngrams
 
-#The function get_sparsematrix_and_car 
-
-
 #The function get_sparsematrix_and_car uses the get_ngrams and sparse_mat function to create inputs for the Random Forest algorithm
-#The inputs are either twice the training dataset or once the training dataset and once the test dataset. 
-#The function first extracts all one- and two-grams of the training dataset via the get_ngrams function. Next, the function iterates over each text document of the second input data file to count occurences of one- and two-grams found in the first input file. 
+#The inputs of the function are either twice the training dataset or once the training dataset and once the test dataset. 
+#The function first extracts all one- and two-grams of the training dataset (the first innput) via the get_ngrams function. Next, the function iterates over each text document of the second input data file to count occurences of one- and two-grams found in the first input file. 
 
 def get_sparsematrix_and_car(data_train, data_test):
 
@@ -139,9 +137,10 @@ def get_sparsematrix_and_car(data_train, data_test):
         i += 1
         j += 1
         
-        #The following code creates a memory-efficient sparse matrix format every 67 observation and then vstacks them to already exisiting sparse matrices.
-        #i and j necessary due to RAM overload. i serves as marker to create a sparse matrix every n observations.
+        #The following code creates a memory-efficient sparse matrix format every 67 observation and then vstacks them. Necessary due to computational capacities.
+        #i and j necessary due to RAM overload. i serves as marker to create a sparse matrix every 67 observations.
         #j serves as marker to concatenate the sparse matrices and to stop the for loop when iterated of all items in data_test. In last iteration all empty key-value pairs of the dictionary need to be deleted
+        #Attention: possible error can pop up when training or test dataset can be divided by 67, just replace 67 by any other number
 
         if j == len(data_test):
             keys_to_remove = (j % 67)
@@ -202,5 +201,5 @@ for _, month in enumerate(data_splt_months):
         pred = rf.predict(X_test).tolist()
         
 #References:
-#Frankel, R., Jennings, J., and Lee, J. (2021). Disclosure sentiment: Machine learning vs. dictionary methods. Management Science, accessed 04.06.2022
+#Frankel, R., Jennings, J., and Lee, J. (2021). Disclosure sentiment: Machine learning vs. dictionary methods. Management Science
 
