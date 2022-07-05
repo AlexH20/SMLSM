@@ -9,7 +9,7 @@ stemmer = PorterStemmer()
 exclude = set(string.punctuation)
 
 #The following code cleans and processes the raw NASDAQ news article text dataset
-#Code to clean phrases and words is based on Frankel, Jennings and Lee (2021)
+#Code to clean phrases and words is either from or based on Frankel, Jennings and Lee (2021)
 
 db = wrds.Connection(wrds_username="YOUR USERNAME")
 
