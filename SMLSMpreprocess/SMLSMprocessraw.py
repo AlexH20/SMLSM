@@ -87,6 +87,7 @@ with open(json_file_path, 'r') as json_file:
         except KeyError:
             continue
 
+        #Remove news articles with more than one related stock ticker symbol
         if len(ticker.split(sep=",")) == 1 and ticker != "":
 
             count_ticker1_only += 1
@@ -100,7 +101,7 @@ with open(json_file_path, 'r') as json_file:
             date = pd.to_datetime(date)
             date_str = date_str.strftime("%m/%d/%Y")
 
-            #Keep text unprocessed for BERT 
+            #Keep text unprocessed
             text_unprocessed = text
 
             #Pre-processing text to reduce noise
