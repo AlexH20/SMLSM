@@ -190,14 +190,10 @@ for tick in tickers[:25]:
 
         ar = return_i - vw_return_i
 
-        # Also add normal return for possible FF3 regression.
-
         data_fill.append([date, tick, issuno_i, shareturnover,
                       size, btm, pre_falpha,
-                      ar, return_i])
+                      ar])
         
         
 #References:
 #Wharton Research Data Services. https://wrds-www.wharton.upenn.edu/. Accessed: 2022-05-12, accessed on 12.05.2022
-
-    
