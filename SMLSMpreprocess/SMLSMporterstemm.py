@@ -4,11 +4,10 @@ from nltk.stem.porter import *
 stemmer = PorterStemmer()
 exclude = set(string.punctuation)
 
-#The following code porter stems words based on the porter stemm algorithm (Porter 1980)
-#Code based on online appendix by Frankel, Jennings and Lee (2021)
+#The following code porter stems words based on the porter stemm algorithm and removes stopwords (Porter 1980)
+#Code from or based on online appendix by Frankel, Jennings and Lee (2021)
 
 data = pd.read_csv("gdrive/My Drive/Thesis/processed data/CAR_regression/datasets_final/data_whole_woScAR.csv", index_col = False)
-print(data.columns)
 stopwords = ['a','able','across','after','also','am','among','an','and','any','are','as','at','be','because','been','but','by','can','could','dear','did','do','does','either','else','ever','every','for','from','get','got','had','has','have','he','her','hers','him','his','how','however','i','if','in','into','is','it','its','just','let','like','likely','me','my','of','off','often','on','only','or','other','our','own','rather','said','say','says','she','should','since','so','some','than','that','the','their','them','then','there','these','they','this','tis','to','too','twas','us','wants','was','we','were','what','when','where','which','while','who','whom','why','will','with','would','yet','you','your']
 
 stopwords_dict={}
