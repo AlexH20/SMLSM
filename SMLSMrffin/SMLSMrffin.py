@@ -118,7 +118,7 @@ for _, month in enumerate(data_splt_months):
         i += 1
 
         data_train = pd.concat([data_splt_months[i], data_splt_months[i+1], data_splt_months[i+2]])
-        data_test = data_splt_months[i+12]
+        data_test = data_splt_months[i+3]
 
         model = FinBERT()
         X_train_hidden = get_pooleroutput(model, data_train)
