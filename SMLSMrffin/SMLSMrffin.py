@@ -96,7 +96,7 @@ def split_months(dt):
 data = pd.read_csv("DATA FILEPATH")
 
 #Get rid of all observations without news articles
-data_onlytext = data.dropna()
+data_onlytext = data[data["word_count"] != 0]
 
 #Prepare data for sliding window approach. Ordered Month dataframe column has value 1 for first month of dataset and e.g. 20 for 20th month of dataset
 data_onlytext["Date"] = pd.to_datetime(data_onlytext["Date"])
