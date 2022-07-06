@@ -63,7 +63,7 @@ def get_pooleroutput(model, train_data):
 
     train = Dataset(train_data)
 
-    train_dataloader = torch.utils.data.DataLoader(train, batch_size=8, shuffle=True)
+    train_dataloader = torch.utils.data.DataLoader(train, batch_size=8, shuffle=False)
 
     use_cuda = torch.cuda.is_available()
     device = torch.device("cuda" if use_cuda else "cpu")
