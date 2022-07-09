@@ -15,3 +15,5 @@ Keywords: NLP, sentiment analysis, Natural Language Processing, sentiment
 Author: Alexander Hölzer
 
 Submitted:  02. Aug 2022, Alexander Hölzer
+
+![Picture1](all_aapl.png)
