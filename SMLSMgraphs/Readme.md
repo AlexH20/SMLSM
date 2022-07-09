@@ -16,4 +16,8 @@ Author: Alexander Hölzer
 
 Submitted:  02. Aug 2022, Alexander Hölzer
 
-![Picture1](all_aapl.png)
+```
+
+![Picture1](dm_aapl.png)
+![Picture2](sml_aapl.png)
+![Picture13](all_aapl.png)
