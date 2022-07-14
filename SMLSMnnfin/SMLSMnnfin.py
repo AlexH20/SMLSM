@@ -155,8 +155,10 @@ data_splt_months = split_months(data_onlytext)
 
 i = -1
 
-np.random.seed(9000)
+
 for _, month in enumerate(data_splt_months):
+    
+        np.random.seed(9000)
 
         i += 1
 
