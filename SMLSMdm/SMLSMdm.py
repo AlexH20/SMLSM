@@ -11,6 +11,7 @@ def count_words(Text):
     return word_count
 
 data = pd.read_csv("DATA FILEPATH")
+data_onlytext = data[data["word_count"] != 0]
 
 #Initial dictionary methods. Harvard and LM dms will be used to assess text sentiment
 hiv4 = ps.HIV4()
@@ -41,5 +42,9 @@ for index, row in data.iterrows():
     lm_neg_tone = lm_neg / word_count
     lm_net_tone = (lm_pos - lm_neg) / (lm_pos + lm_neg)
     
+    data_fill.append([hiv4_pos_tone, hiv4_neg_tone, hiv4_net_tone, lm_pos_tone, lm_neg_tone, lm_net_tone])
+    
+dm_sentiment = pd.DataFrame(data_fill, columns = ["HIV4_pos", "HIV4_neg", "HIV4_tone", "LM_pos", "LM_neg", "LM_tone"])
+
 #References:
 #DeRobertis, N. (2020). Pysentiment2 0.1.1.
