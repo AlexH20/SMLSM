@@ -7,5 +7,3 @@ Description: This folder contains 1 quantlet regressing the abnormal returns on 
 Keywords: NLP, sentiment analysis, Natural Language Processing, sentiment
 
 Author: Alexander Hölzer
-
-Submitted:  02. Aug 2022, Alexander Hölzer
