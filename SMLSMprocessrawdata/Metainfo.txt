@@ -1,0 +1,9 @@
+Name of Quantlets: SMLSMporterstemm
+
+Published in: TBC
+
+Description: This folder contains the quantlet SMLSMprocessrawdata which processes the raw NASDAQ news data set for the master thesis "Supervised Machine Learning Sentiment Measures. 
+
+Keywords: NLP, sentiment analysis, Natural Language Processing, sentiment, news articles
+
+Author: Alexander Hölzer
