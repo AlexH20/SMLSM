@@ -11,7 +11,6 @@ def count_words(Text):
     return word_count
 
 data = pd.read_csv("DATA FILEPATH")
-data_onlytext = data[data["word_count"] != 0]
 
 #Initial dictionary methods. Harvard and LM dms will be used to assess text sentiment
 hiv4 = ps.HIV4()
