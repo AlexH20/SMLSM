@@ -4,6 +4,6 @@ Published in: TBC
 
 Description: This folder contains 1 quantlet estimating sentiment measures based on the Random Forest algorithm with inputs from FinBERT for the master thesis "Supervised Machine Learning Sentiment Measures"
 
-Keywords: NLP, sentiment analysis, Natural Language Processing, sentiment
+Keywords: NLP, sentiment analysis, Natural Language Processing, sentiment, news articles
 
 Author: Alexander Hölzer
