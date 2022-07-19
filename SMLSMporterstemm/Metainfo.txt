@@ -1,9 +1,9 @@
-Name of Quantlets: SMLSMporterstemm
+Name of Quantlets: 'SMLSMporterstemm'
 
-Published in: TBC
+Published in: 'TBC'
 
-Description: This folder contains the quantlet SMLSMporterstemm which stems words according to the Porter (1980) algorithm for the master thesis "Supervised Machine Learning Sentiment Measures. 
+Description: 'This folder contains the quantlet SMLSMporterstemm which stems words according to the Porter (1980) algorithm for the master thesis "Supervised Machine Learning Sentiment Measures".' 
 
-Keywords: NLP, sentiment analysis, Natural Language Processing, sentiment, news articles
+Keywords: 'NLP, sentiment analysis, Natural Language Processing, sentiment, news articles'
 
-Author: Alexander Hölzer
+Author: 'Alexander Hoelzer'
