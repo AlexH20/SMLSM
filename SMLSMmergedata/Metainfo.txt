@@ -1,9 +1,9 @@
-Name of Quantlets: SMLSMmergedata
+Name of Quantlets: 'SMLSMmergedata'
 
-Published in: TBC
+Published in: 'TBC'
 
-Description: This folder contains the quantlet SMLSMmergedata which merges the output file of quantlet SMLSMgetpanel and quantlet SMLSMprocessraw for the master thesis "Supervised Machine Learning Sentiment Measures. 
+Description: 'This folder contains the quantlet SMLSMmergedata which merges the output file of quantlet SMLSMgetpanel and quantlet SMLSMprocessraw for the master thesis "Supervised Machine Learning Sentiment Measures".' 
 
-Keywords: NLP, sentiment analysis, Natural Language Processing, sentiment, news articles
+Keywords: 'NLP, sentiment analysis, Natural Language Processing, sentiment, news articles'
 
-Author: Alexander Hölzer
+Author: 'Alexander Hoelzer'
